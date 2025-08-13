@@ -38,13 +38,15 @@ public class BinarySearchTree {
         preOrder(node.right);
     }
 
-    public void inOrder(Node node) {
+    public String inOrder(Node node) {
         if (node == null) {
-            return;
+            return null;
         }
-        inOrder(node.left);
-        System.out.print(node.value + " ");
-        inOrder(node.right);
+        String lefts = inOrder(node.left);
+        String root = node.value + " ";
+        String rights = inOrder(node.right);
+
+        return lefts + root + rights;
     }
 
     public void postOrder(Node node) {
@@ -123,5 +125,13 @@ public class BinarySearchTree {
     public void deleteBST() {
         root = null;
         System.out.println("BST has been deleted successfully");
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
     }
 }
