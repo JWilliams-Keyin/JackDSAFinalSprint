@@ -38,7 +38,7 @@ public class TreeService {
     public Tree createTree(Tree newTree) {
         return treeRepository.save(newTree);
     }
-
+    
     public Tree updateTree(long id, Tree updatedTree) {
         Optional<Tree> treeToUpdateOptional = treeRepository.findById(id);
 
@@ -66,10 +66,10 @@ public class TreeService {
         String numbersJson = objectMapper.writeValueAsString(bstNumbers);
         String treeJson = objectMapper.writeValueAsString(newBST.getRoot());
 
-        Tree entity = new Tree();
-        entity.setTreeNumbers(numbersJson);
-        entity.setTreeJson(treeJson);
+        Tree newTree = new Tree();
+        newTree.setTreeNumbers(numbersJson);
+        newTree.setTreeJson(treeJson);
 
-        return treeRepository.save(entity);
+        return treeRepository.save(newTree);
     }
 }
