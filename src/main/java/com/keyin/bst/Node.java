@@ -6,6 +6,10 @@ public class Node {
     public Node right;
     public int height;
 
+    public Node(int value) {
+        this.value = value;
+    }
+
     public Node getLeft() {
         return left;
     }

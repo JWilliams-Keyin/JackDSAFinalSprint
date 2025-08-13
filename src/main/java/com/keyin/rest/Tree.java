@@ -15,8 +15,7 @@ public class Tree {
     private String treeNumbers;
     private String treeJson;
 
-    public Tree(BinarySearchTree binarySearchTree) {
-        this.treeNumbers = binarySearchTree.inOrder(binarySearchTree.getRoot());
+    public Tree() {
     }
 
     public long getId() {

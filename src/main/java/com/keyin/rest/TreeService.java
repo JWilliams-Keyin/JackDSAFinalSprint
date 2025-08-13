@@ -1,5 +1,7 @@
 package com.keyin.rest;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.keyin.bst.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import java.util.Optional;
 public class TreeService {
     @Autowired
     private TreeRepository treeRepository;
+    @Autowired
+    private ObjectMapper objectMapper;
 
     public Tree findByTreeNumbers(ArrayList<Integer> treeNumbers) {
         return treeRepository.findByTreeNumbers(treeNumbers);
@@ -53,5 +57,19 @@ public class TreeService {
         }
 
         return null;
+    }
+
+    public Tree processNewTree(List<Integer> bstNumbers) throws JsonProcessingException {
+        BinarySearchTree newBST = new BinarySearchTree();
+        newBST.insertAll(bstNumbers);
+
+        String numbersJson = objectMapper.writeValueAsString(bstNumbers);
+        String treeJson = objectMapper.writeValueAsString(newBST.getRoot());
+
+        Tree entity = new Tree();
+        entity.setTreeNumbers(numbersJson);
+        entity.setTreeJson(treeJson);
+
+        return treeRepository.save(entity);
     }
 }
