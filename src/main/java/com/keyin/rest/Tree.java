@@ -1,5 +1,6 @@
 package com.keyin.rest;
 
+import com.keyin.bst.BinarySearchTree;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -11,14 +12,18 @@ public class Tree {
     @GeneratedValue(generator = "tree_sequence")
     private long id;
 
-    private ArrayList<Integer> treeNumbers;
+    private String treeNumbers;
     private String treeJson;
+
+    public Tree(BinarySearchTree binarySearchTree) {
+        this.treeNumbers = binarySearchTree.inOrder(binarySearchTree.getRoot());
+    }
 
     public long getId() {
         return id;
     }
 
-    public ArrayList<Integer> getTreeNumbers() {
+    public String getTreeNumbers() {
         return treeNumbers;
     }
 
@@ -30,7 +35,7 @@ public class Tree {
         this.id = id;
     }
 
-    public void setTreeNumbers(ArrayList<Integer> treeNumbers) {
+    public void setTreeNumbers(String treeNumbers) {
         this.treeNumbers = treeNumbers;
     }
 
