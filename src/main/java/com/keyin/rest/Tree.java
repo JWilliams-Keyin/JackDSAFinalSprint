@@ -1,6 +1,5 @@
 package com.keyin.rest;
 
-import com.keyin.bst.BinarySearchTree;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

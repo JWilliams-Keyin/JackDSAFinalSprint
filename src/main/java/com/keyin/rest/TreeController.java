@@ -1,10 +1,7 @@
 package com.keyin.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.keyin.bst.BinarySearchTree;
-import com.keyin.bst.Node;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class TreeController {
         return treeService.getAllTrees();
     }
 
-    @PostMapping("process-numbers")
+    @PostMapping("/process-numbers")
     public Tree createTree(@RequestBody List<Integer> treeNumbers) throws JsonProcessingException {
         return treeService.processNewTree(treeNumbers);
     }
