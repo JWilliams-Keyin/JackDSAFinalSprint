@@ -17,7 +17,7 @@ public class TreeService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public Tree findByTreeNumbers(ArrayList<Integer> treeNumbers) {
+    public Tree findByTreeNumbers(String treeNumbers) {
         return treeRepository.findByTreeNumbers(treeNumbers);
     }
 

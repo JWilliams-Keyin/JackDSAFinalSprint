@@ -9,4 +9,4 @@ Once project is installed locally, take the following steps to get it to run:
 
 The project should now be running
 
-Move on to JackDSAFinalSprintFrontEnd to continue get install guide for the front end
+Move on to JackDSAFinalSprintFrontEnd to get install guide for the front end
