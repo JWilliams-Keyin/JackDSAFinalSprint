@@ -18,6 +18,19 @@ public class TreeController {
         return treeService.getAllTrees();
     }
 
+    @GetMapping("/tree_search")
+    public List<Tree> searchTrees(@RequestParam(value = "tree_numbers", required = false) String treeNumbers) {
+        List<Tree> searchResults = new ArrayList<>();
+
+        if (treeNumbers != null) {
+            Tree treeFound = treeService.findByTreeNumbers(treeNumbers);
+
+            searchResults.add(treeFound);
+        }
+
+        return searchResults;
+    }
+
     @PostMapping("/process-numbers")
     public Tree createTree(@RequestBody List<Integer> treeNumbers) throws JsonProcessingException {
         return treeService.processNewTree(treeNumbers);
