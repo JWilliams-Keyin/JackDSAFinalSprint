@@ -7,5 +7,5 @@ import java.util.ArrayList;
 
 @Repository
 public interface TreeRepository extends CrudRepository<Tree, Long> {
-    public Tree findByTreeNumbers(ArrayList<Integer> treeNumbers);
+    public Tree findByTreeNumbers(String treeNumbers);
 }
